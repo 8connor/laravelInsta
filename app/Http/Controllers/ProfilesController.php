@@ -1,20 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
 
 class ProfilesController extends Controller
 {
-
-
-    public function index($user)
+    public function edit(User $user)
     {
-        $user = User::findOrFail($user);
+        return view('profiles.edit', compact('user'));
+    }
 
-        return view('home', [
-            'user' => $user
-        ]);
+    public function patch()
+    {
+        $data = " ";
+
+        return redirect("/profile/" . auth()->user()->id);
+    }
+
+    public function index(User $user)
+    {
+        return view('profiles.index', compact('user'));
     }
 }

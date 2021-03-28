@@ -20,5 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
+Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [App\Http\Controllers\ProfilesController::class, 'patch'])->name('profile.patch');
 
-Route::get('/p', [App\Http\Controllers\PostsController::class, 'create'])->name('post.create');
+
+Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
+Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
+Route::get('/p/{id}', [App\Http\Controllers\PostsController::class, 'index'])->name('post.show');
