@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-3 p-5">
                 <img src="/images/defaultUser.png" alt="default profile pic" class="rounded-circle profilePic"
-                    height="100px" width="100px">
+                     height="100px" width="100px">
             </div>
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
@@ -32,8 +32,8 @@
                 </div>
                 <div>
                     <a href="{{ $user->profile->url }}"
-                        target="{{ $user->profile->url ? '_noopener' : $user->profile->url }}"
-                        style="color: black; text-decoration: none">
+                       target="{{ $user->profile->url ? '_noopener' : $user->profile->url }}"
+                       style="color: black; text-decoration: none">
                         {{ $user->profile->url ?? 'N/A' }}
                     </a>
                 </div>

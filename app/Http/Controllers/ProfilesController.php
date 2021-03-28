@@ -13,7 +13,7 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function patch()
+    public function patch(User $user)
     {
         $data = " ";
 
