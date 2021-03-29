@@ -35,7 +35,7 @@ class PostsController extends Controller
             'caption' => request('caption'),
             'image' => $imagePath
         ]);
-        
+
         return redirect('/profile/' . auth()->user()->id);
     }
 

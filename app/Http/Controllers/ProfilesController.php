@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,11 +14,17 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function patch(User $user)
+    public function patch()
     {
-        $data = " ";
+        $userId = auth()->user()->id;
 
-        return redirect("/profile/" . auth()->user()->id);
+        $user = User::findOrFail($userId);
+
+        $data = request()->all();
+
+        $user->update($data);
+
+        return redirect("/profile/" . $userId);
     }
 
     public function index(User $user)
